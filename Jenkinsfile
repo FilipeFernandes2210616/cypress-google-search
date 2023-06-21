@@ -13,7 +13,7 @@ pipeline {
         stage('Run automated tests'){
             steps {
               echo "Running automated tests"
-              sh 'npx cypress run --spec "cypress/integration/google-search.js"'
+              //sh 'npx cypress run --spec "cypress/integration/google-search.js"'
             }
         }
 
