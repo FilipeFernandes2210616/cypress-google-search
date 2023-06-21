@@ -13,7 +13,11 @@ pipeline {
         stage('Run automated tests'){
             steps {
               echo "Running automated tests"
-              sh 'npx cypress run --spec "cypress/integration/google-search.js"'
+              sh 'npm prune'
+                sh 'npm cache clean --force'
+                sh 'npm i'
+                sh 'npm install --save-dev mochawesome mochawesome-merge mochawesome-report-generator'
+                sh 'npm run e2e:staging1spec'
             }
         }
 
