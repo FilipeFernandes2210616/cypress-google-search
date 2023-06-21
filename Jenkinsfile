@@ -4,7 +4,8 @@ pipeline {
       stages {
         stage('Build/Deploy app to staging') {
             steps {
-              echo "Copying files to staging and restarting the app"
+              echo "installing app"
+              sh 'npm install'
             }
         }
         
