@@ -1,6 +1,5 @@
 pipeline {
       agent any
-      tools {nodejs "NodeJS"}
 
       stages {
         stage('Build/Deploy app to staging') {
