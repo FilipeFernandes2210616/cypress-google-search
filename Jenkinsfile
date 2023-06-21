@@ -3,7 +3,7 @@ pipeline {
       tools {nodejs "app"}
 
       stages {
-        stage('Build/Deploy app to staging') {
+        stage('Build app') {
             steps {
               echo "installing app"
               sh 'npm install'
@@ -17,8 +17,16 @@ pipeline {
         }
 
         stage('SonarQube analysis') {
-          steps {
-                echo "SonarQube analysis"
+            
+            
+            steps {
+                script {
+                    scannerHome = tool 'sonar-scanner';
+                }
+                withSonarQubeEnv('SonarCloud'){
+                    echo "SonarQube analysis"
+                    sh "${scannerHome}/bin/sonar-scanner"
+                }
             }
         }
 
