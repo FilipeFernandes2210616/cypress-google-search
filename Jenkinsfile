@@ -13,7 +13,6 @@ pipeline {
         stage('Run automated tests'){
             steps {
               echo "Running automated tests"
-              sh 'apt-get install libgtk2.0-0 libgtk-3-0 libgbm-dev libnotify-dev libgconf-2-4 libnss3 libxss1 libasound2 libxtst6 xauth xvfb'
               sh 'npx cypress run --spec "cypress/integration/google-search.js"'
             }
         }
